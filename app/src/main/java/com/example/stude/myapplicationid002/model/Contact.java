@@ -7,7 +7,7 @@ package com.example.stude.myapplicationid002.model;
  * At 14:58.
  * Today is понедельник
  */
-public class Contact {
+public class Contact implements Comparable<Contact>{
     private static int count = 0;
 
     public static int getCount() {
@@ -18,7 +18,19 @@ public class Contact {
         return name;
     }
 
-    public Contact setNsme(String nsme) {
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", patronymic='" + patronymic + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", mobileOperator='" + mobileOperator + '\'' +
+                ", birthday='" + birthday + '\'' +
+                '}';
+    }
+
+    public Contact setName(String name) {
         this.name = name;
         return this;
     }
@@ -78,4 +90,9 @@ public class Contact {
 
     private String birthday;
 
+
+    @Override
+    public int compareTo(Contact o) {
+        return 0;
+    }
 }
