@@ -7,15 +7,24 @@ package com.example.stude.myapplicationid002.model;
  * At 14:58.
  * Today is понедельник
  */
-public class Contact implements Comparable<Contact>{
+
+/**
+ * Contact it's a class to keep contacts inside a structure
+ *
+ * count  needs to keep count of created Contacts
+ */
+public class Contact{
+
     private static int count = 0;
 
     public static int getCount() {
         return count;
     }
 
-    public String getName() {
-        return name;
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        count--;
     }
 
     @Override
@@ -30,10 +39,28 @@ public class Contact implements Comparable<Contact>{
                 '}';
     }
 
+    private Contact(){
+        count++;
+    }
+
+    public Contact(String phoneNumber){
+        this();
+        this.phoneNumber = phoneNumber;
+    }
+
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+
+
     public Contact setName(String name) {
         this.name = name;
         return this;
     }
+    private String surname;
 
     public String getSurname() {
         return surname;
@@ -43,6 +70,8 @@ public class Contact implements Comparable<Contact>{
         this.surname = surname;
         return this;
     }
+    private String patronymic;
+
 
     public String getPatronymic() {
         return patronymic;
@@ -52,6 +81,8 @@ public class Contact implements Comparable<Contact>{
         this.patronymic = patronymic;
         return this;
     }
+    private String phoneNumber;
+
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -61,6 +92,7 @@ public class Contact implements Comparable<Contact>{
         this.phoneNumber = phoneNumber;
         return this;
     }
+    private String mobileOperator;
 
     public String getMobileOperator() {
         return mobileOperator;
@@ -71,6 +103,8 @@ public class Contact implements Comparable<Contact>{
         return this;
     }
 
+    private String birthday;
+
     public String getBirthday() {
         return birthday;
     }
@@ -78,21 +112,5 @@ public class Contact implements Comparable<Contact>{
     public Contact setBirthday(String birthday) {
         this.birthday = birthday;
         return this;
-    }
-
-    private String name;
-    private String surname;
-    private String patronymic;
-
-    private String phoneNumber;
-
-    private String mobileOperator;
-
-    private String birthday;
-
-
-    @Override
-    public int compareTo(Contact o) {
-        return 0;
     }
 }

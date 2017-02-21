@@ -12,13 +12,12 @@ public class UnitTest {
 
     @Test
     public void isAllWorking() throws Exception {
-        Contact c1 = new Contact();
+        Contact c1 = new Contact("+77777777777");
         c1.setName("Alexander");
         c1.setSurname("Popov");
         c1.setPatronymic("Vasilyevich");
         c1.setMobileOperator("MTS");
         c1.setBirthday("21.12.17");
-        c1.setPhoneNumber("+77777777777");
 
         System.out.println(c1.toString());
     }
